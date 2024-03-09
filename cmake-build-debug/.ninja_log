@@ -1,5 +1,4 @@
 # ninja log v5
-2	87	7317220969041913	CMakeFiles/bitboard_chess.dir/main.c.obj	8d400ce5cdd8b699
-88	329	7317220970112049	bitboard_chess.exe	3cc4eea09295e823
-2	119	7317228420925501	CMakeFiles/bitboard_chess.dir/main.c.obj	8d400ce5cdd8b699
-119	223	7317228422013697	bitboard_chess.exe	3cc4eea09295e823
+2	76	7317818395680162	CMakeFiles/bitboard_chess.dir/main.c.obj	8d400ce5cdd8b699
+76	163	7317818396524551	bitboard_chess.exe	3cc4eea09295e823
+1	108	7317820593055418	build.ninja	f825bd9850583acb
