@@ -5,4 +5,6 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(bitboard_chess
         main.c
-        helper.h)
+        helper.h
+        knights.h
+        leaperAttacks.h)

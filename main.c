@@ -1,11 +1,11 @@
-#include <stdio.h>
-#include "helper.h"
+#include "pawns.h"
+#include "knights.h"
+#include "leaperAttacks.h"
 
 int main(){
-    printf("Chessboard\n");
-    U64 bitboard = 0ULL;
-    setBit(bitboard, E2);
-
-    printBoard(bitboard);
+    init_leapers_attack();
+    for (int square = 0; square < 64; square++){
+        printBoard(knight_attacks[square]);
+    }
     return 0;
 }

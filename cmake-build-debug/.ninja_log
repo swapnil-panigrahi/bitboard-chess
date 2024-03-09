@@ -1,9 +1,5 @@
 # ninja log v5
-2	67	7312730723844743	CMakeFiles/bitboard_chess.dir/main.c.obj	8d400ce5cdd8b699
-67	147	7312730724615618	bitboard_chess.exe	3cc4eea09295e823
-2	71	7312735874094178	CMakeFiles/bitboard_chess.dir/main.c.obj	8d400ce5cdd8b699
-71	160	7312735874963361	bitboard_chess.exe	3cc4eea09295e823
-2	85	7312739264623467	CMakeFiles/bitboard_chess.dir/main.c.obj	8d400ce5cdd8b699
-86	196	7312739265680183	bitboard_chess.exe	3cc4eea09295e823
-2	74	7312739362062361	CMakeFiles/bitboard_chess.dir/main.c.obj	8d400ce5cdd8b699
-74	160	7312739362895813	bitboard_chess.exe	3cc4eea09295e823
+2	87	7317220969041913	CMakeFiles/bitboard_chess.dir/main.c.obj	8d400ce5cdd8b699
+88	329	7317220970112049	bitboard_chess.exe	3cc4eea09295e823
+2	119	7317228420925501	CMakeFiles/bitboard_chess.dir/main.c.obj	8d400ce5cdd8b699
+119	223	7317228422013697	bitboard_chess.exe	3cc4eea09295e823
