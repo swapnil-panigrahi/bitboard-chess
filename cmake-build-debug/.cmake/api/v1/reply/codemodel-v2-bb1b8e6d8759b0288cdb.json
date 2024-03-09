@@ -39,7 +39,11 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "bitboard_chess::@6890427a1f51a3e7e1df",
+<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-c2173680f906d01d5caf.json
 					"jsonFile" : "target-bitboard_chess-Debug-029d5a87590f67d04bf5.json",
+========
+					"jsonFile" : "target-bitboard_chess-Debug-8cbeea5b6cfb788af7b9.json",
+>>>>>>>> 44663cf (Added pawn and knight attack tables):cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-bb1b8e6d8759b0288cdb.json
 					"name" : "bitboard_chess",
 					"projectIndex" : 0
 				}
