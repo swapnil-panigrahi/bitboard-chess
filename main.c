@@ -7,7 +7,10 @@
 
 int main(){
     init_leapers_attack();
-    printBoard(mask_rook_attacks(A8));
+    U64 block = 0ULL;
+    setBit(block, E5);
+    setBit(block, D4);
+    printBoard(generate_rook_attacks(D5, block));
 
     return 0;
 }
