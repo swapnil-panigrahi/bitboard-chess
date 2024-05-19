@@ -13,5 +13,6 @@ int main(){
     printBoard(generate_rook_attacks(D5, block));
 //    printf("\n");
 //    printf("%d", count_bits(block));
+    printf("%s", index_to_squares [least_significant_1_bit(block)]);
     return 0;
 }
