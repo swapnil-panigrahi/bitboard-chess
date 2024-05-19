@@ -11,6 +11,7 @@ int main(){
     setBit(block, E5);
     setBit(block, D4);
     printBoard(generate_rook_attacks(D5, block));
-
+//    printf("\n");
+//    printf("%d", count_bits(block));
     return 0;
 }

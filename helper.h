@@ -37,3 +37,12 @@ void printBoard(U64 board){
         printf("%c ", i);
     }
 }
+
+int count_bits(U64 board){
+    int count = 0;
+    while (board>0){
+        count++;
+        board &= board - 1;
+    }
+    return count;
+}
