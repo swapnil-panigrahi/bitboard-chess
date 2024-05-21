@@ -72,7 +72,7 @@ U64 set_occupancy (int index, int bits, U64 mask){
     for(int count=0;count<bits;count++){
         int square = least_significant_1_bit(mask);
         resetBit(mask, square);
-        if(index && (1 << count)){
+        if(index & (1 << count)){
             occupancy |= (1ULL << square);
         }
     }
