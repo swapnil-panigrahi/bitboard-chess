@@ -31,6 +31,8 @@ const char *index_to_squares[] = {
         "A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1"
 };
 
+unsigned int state = 1804289383;
+
 // print board
 void printBoard(U64 board){
     printf("Bitboard: %llud\n\n", board); //Bitboard numeric for getting some constants etc.
@@ -67,14 +69,25 @@ int least_significant_1_bit(U64 board){
     }
 }
 
-U64 set_occupancy (int index, int bits, U64 mask){
-    U64 occupancy = 0ULL;
-    for(int count=0;count<bits;count++){
-        int square = least_significant_1_bit(mask);
-        resetBit(mask, square);
-        if(index & (1 << count)){
-            occupancy |= (1ULL << square);
-        }
-    }
-    return occupancy;
+unsigned int random_number_XORShift(){
+    unsigned int num = state;
+    num ^= num << 13;
+    num ^= num >> 17;
+    num ^= num << 5;
+    state = num;
+    return num;
+}
+
+U64 random_number_64bits(){
+    U64 number1, number2, number3, number4;
+    number1 = (U64)(random_number_XORShift() & 0xFFFF);
+    number2 = (U64)(random_number_XORShift() & 0xFFFF);
+    number3 = (U64)(random_number_XORShift() & 0xFFFF);
+    number4 = (U64)(random_number_XORShift() & 0xFFFF);
+
+    return number1 | (number2 << 16) | (number3 << 32) | (number4 << 48);
+}
+
+U64 magic_number_candidate(){
+    return random_number_64bits() & random_number_64bits() & random_number_64bits();
 }
