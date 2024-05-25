@@ -1,10 +1,10 @@
+#define U64 unsigned long long
+
+#include "helper.h"
 #include "pawns.h"
 #include "knights.h"
 #include "kings.h"
-#include "bishop.h"
-#include "rook.h"
 #include "leaperAttacks.h"
-#include "slidingAttacks.h"
 
 int main(){
     init_leapers_attack();

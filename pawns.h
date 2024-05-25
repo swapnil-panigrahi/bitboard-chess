@@ -1,5 +1,3 @@
-#include "helper.h"
-
 const U64 not_A = 18374403900871474942ULL;
 const U64 not_H = 9187201950435737471ULL;
 
