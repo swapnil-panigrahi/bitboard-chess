@@ -1,4 +1,4 @@
-# Install script for directory: D:/College_Stuff/C/bitboard-chess
+# Install script for directory: D:/College/Coding/C and CPP/bitboard-chess
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/Swapnil Panigrahi/AppData/Local/Programs/CLion/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/Samridh Gupta/AppData/Local/Programs/CLion/bin/mingw/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/College_Stuff/C/bitboard-chess/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/College/Coding/C and CPP/bitboard-chess/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

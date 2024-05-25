@@ -10,4 +10,5 @@ add_executable(bitboard_chess
         kings.h
         bishop.h
         rook.h
-        leaperAttacks.h)
+        leaperAttacks.h
+        slidingAttacks.h)
