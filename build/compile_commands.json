@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/College_Stuff/C/bitboard-chess/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe   -g -o CMakeFiles\\bitboard_chess.dir\\main.c.obj -c D:\\College_Stuff\\C\\bitboard-chess\\main.c",
+  "file": "D:/College_Stuff/C/bitboard-chess/main.c",
+  "output": "CMakeFiles/bitboard_chess.dir/main.c.obj"
+}
+]

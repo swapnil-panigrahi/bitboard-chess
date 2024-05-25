@@ -1,5 +1,4 @@
 "C:\Users\Swapnil Panigrahi\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/Swapnil Panigrahi/AppData/Local/Programs/CLion/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\College_Stuff\C\bitboard-chess -B D:\College_Stuff\C\bitboard-chess\cmake-build-debug
--- Configuring done (0.0s)
+-- Configuring done (0.2s)
 -- Generating done (0.0s)
 -- Build files have been written to: D:/College_Stuff/C/bitboard-chess/cmake-build-debug
-CMake File API: D:\College_Stuff\C\bitboard-chess\cmake-build-debug: failed to load from 'D:\College_Stuff\C\bitboard-chess\cmake-build-debug\.cmake\api\v1\reply\codemodel-v2-bb1b8e6d8759b0288cdb.json'

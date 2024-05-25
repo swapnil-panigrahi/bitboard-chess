@@ -1,0 +1,3 @@
+D:/College_Stuff/C/bitboard-chess/build/CMakeFiles/bitboard_chess.dir
+D:/College_Stuff/C/bitboard-chess/build/CMakeFiles/edit_cache.dir
+D:/College_Stuff/C/bitboard-chess/build/CMakeFiles/rebuild_cache.dir

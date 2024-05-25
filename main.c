@@ -4,20 +4,39 @@
 #include "bishop.h"
 #include "rook.h"
 #include "leaperAttacks.h"
-#include "slidingAttacks.h"
 
 int main(){
     init_leapers_attack();
-//    for(int i = 0;i < 8; i++){
-//        for(int j = 0;j < 8; j++){
-//            int square = i * 8 + j;
-//            printf("%d,", count_bits(mask_bishop_attacks(square)));
-//        }
-//        printf("\n");
-//    }
-    printf("%ud\n",random_number_XORShift());
-    printf("%ud\n",random_number_XORShift());
-    printBoard(random_number_64bits());
-    printBoard(magic_number_candidate());
+    for (int position = A2; position < A1; position++){
+        setBit(bitboards[P], position);
+    }
+    for (int position = A7; position < A6; position++){
+        setBit(bitboards[p], position);
+    }
+    setBit(bitboards[N], B1);
+    setBit(bitboards[N], G1);
+
+    setBit(bitboards[R], A1);
+    setBit(bitboards[R], H1);
+
+    setBit(bitboards[B], C1);
+    setBit(bitboards[B], F1);
+
+    setBit(bitboards[Q], D1);
+    setBit(bitboards[K], E1);
+
+    setBit(bitboards[n], B8);
+    setBit(bitboards[n], G8);
+
+    setBit(bitboards[r], A8);
+    setBit(bitboards[r], H8);
+
+    setBit(bitboards[b], C8);
+    setBit(bitboards[b], F8);
+
+    setBit(bitboards[q], D8);
+    setBit(bitboards[k], E8);
+
+    printBoard();
     return 0;
 }

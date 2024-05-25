@@ -1,0 +1,3 @@
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E rm -f CMakeFiles\bitboard_chess.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\bitboard_chess.dir/objects.a @CMakeFiles\bitboard_chess.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\bitboard_chess.dir/objects.a -Wl,--no-whole-archive -o bitboard_chess.exe -Wl,--out-implib,libbitboard_chess.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\bitboard_chess.dir\linkLibs.rsp
