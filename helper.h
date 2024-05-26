@@ -2,11 +2,18 @@
 #include "bishop.h"
 #include "rook.h"
 #include "slidingAttacks.h"
+#include <string.h>
 
-
+#define U64 unsigned long long
 #define getBit(board,square) (board & (1ULL<<square))
 #define setBit(board,square) (board |= (1ULL<<square))
 #define resetBit(board,square) (getBit(board,square) ? board ^= (1ULL<<square) : 0)
+
+#define empty_board "8/8/8/8/8/8/8/8 w - - "
+#define start_position "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1 "
+#define tricky_position "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq - 0 1 "
+#define killer_position "rnbqkb1r/pp1p1pPp/8/2p1pP2/1P1P4/3P3P/P1P1P3/RNBQKBNR w KQkq e6 0 1"
+#define cmk_position "r2q1rk1/ppp2ppp/2n1bn2/2b1p3/3pP3/3P1NPP/PPP1NPB1/R1BQ1RK1 b - - 0 9 "
 
 static inline int countBit(U64 board){
     int count = 0;
@@ -112,8 +119,9 @@ void printBoard(){
         printf("\n");
     }
     printf("    A B C D E F G H\n");
-
     printf("Side : %c\n", !side ? 'W' : 'B');
+    printf("Enpassant : %s\n", (enpassant != None) ? index_to_squares[enpassant] : "No");
+    printf("Castling : %c%c%c%c\n\n", (castle & WK) ? 'K' : '-', (castle & WQ) ? 'Q' : '-', (castle & BK) ? 'k' : '-', (castle & BQ) ? 'q' : '-');
 }
 
 int count_bits(U64 board){
@@ -159,10 +167,10 @@ unsigned int random_number_XORShift(){
 
 U64 random_number_64bits(){
     U64 number1, number2, number3, number4;
-    number1 = (U64)(random_number_XORShift()) & 0xFFFF;
-    number2 = (U64)(random_number_XORShift()) & 0xFFFF;
-    number3 = (U64)(random_number_XORShift()) & 0xFFFF;
-    number4 = (U64)(random_number_XORShift()) & 0xFFFF;
+    number1 = (U64)(random_number_XORShift() & 0xFFFF);
+    number2 = (U64)(random_number_XORShift() & 0xFFFF);
+    number3 = (U64)(random_number_XORShift() & 0xFFFF);
+    number4 = (U64)(random_number_XORShift() & 0xFFFF);
 
     return number1 | (number2 << 16) | (number3 << 32) | (number4 << 48);
 }
@@ -171,6 +179,82 @@ U64 magic_number_candidate(){
     return random_number_64bits() & random_number_64bits() & random_number_64bits();
 }
 
+void parseFEN(char* fen){
+    memset(bitboards, 0ULL, sizeof(bitboards));
+    memset(occupancies, 0ULL, sizeof(occupancies));
+
+    side = 0; castle = 0; enpassant = None;
+
+    for (int rank = 0; rank < 8; rank++){
+        for (int file = 0; file < 8; file++){
+            int square = rank * 8 + file;
+            if ((*fen >= 'a' && *fen <= 'z') || *fen >= 'A' && *fen <= 'Z'){
+                int piece = char_pieces[*fen];
+
+                setBit(bitboards[piece], square);
+                *fen++;
+            }
+
+            if (*fen >= '0' && *fen <= '9'){
+                int piece = -1;
+                for (int _piece = P; _piece <= k; _piece++){
+                    if (getBit(bitboards[_piece], square)){
+                        piece = _piece;
+                    }
+                }
+                if (piece == -1) file--;
+                file += (*fen - '0');
+                *fen++;
+            }
+
+            if (*fen == '/'){
+                *fen++;
+            }
+        }
+    }
+    *fen++;
+    if (*fen == 'w') side = white;
+    else side = black;
+
+    fen+=2;
+
+    if (*fen == 'K'){
+        castle |= WK;
+        *fen++;
+    }
+    if (*fen == 'Q'){
+        castle |= WQ;
+        *fen++;
+    }
+    if (*fen == 'k'){
+        castle |= BK;
+        *fen++;
+    }
+    if (*fen == 'q'){
+        castle |= BQ;
+        *fen++;
+    }
+    if (*fen == '-') *fen++;
+
+    *fen++;
+    if (*fen != '-'){
+        int file = fen[0] - 'a';
+        int rank = 8 - (fen[1] - '0');
+
+        enpassant = rank * 8 + file;
+    }
+    else enpassant = None;
+
+    for (int piece = P; piece <= K; piece++){
+        occupancies[white] |= bitboards[piece];
+    }
+    for (int piece = p; piece <= k; piece++){
+        occupancies[black] |= bitboards[piece];
+    }
+
+    occupancies[both] |= occupancies[white];
+    occupancies[both] |= occupancies[black];
+}
 U64 magic_number(int square, int relevant_bits, int bishop){
     U64 occupanciess[4096];
     U64 attacks[4096];

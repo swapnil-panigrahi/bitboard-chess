@@ -38,6 +38,7 @@ int main(){
     setBit(bitboards[q], D8);
     setBit(bitboards[k], E8);
 
+    parseFEN("r2q1rk1/ppp2ppp/2n1bn2/2b1p3/3pP3/3P1NPP/PPP1NPB1/R1BQ1RK1 b Kk e6 0 9 ");
     printBoard();
     return 0;
 }
